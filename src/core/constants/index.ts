@@ -1,0 +1,2 @@
+export const GET_CATS = 'GET_CATS/PROFILE';
+export const GET_CATS_SUCESS = 'GET_CATS_SUCCESS/PROFILE';

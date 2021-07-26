@@ -1,10 +1,11 @@
-const GET_CATS = 'GET_CATS/PROFILE';
-const GET_CATS_SUCESS = 'GET_CATS_SUCCESS/PROFILE';
+import {Cat} from '../../types';
+import {ActionTypes} from './actionTypes';
+import {GET_CATS, GET_CATS_SUCESS} from '../constants';
 
-export const getCatsAction = () => ({
+export const getCatsAction = (): ActionTypes => ({
   type: GET_CATS,
 });
-export const getCatsActionSuccess = data => ({
+export const getCatsActionSuccess = (payload: Cat[]): ActionTypes => ({
   type: GET_CATS_SUCESS,
-  data,
+  payload,
 });
