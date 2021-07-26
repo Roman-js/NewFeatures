@@ -1,12 +1,15 @@
 import React, {useRef, useState} from 'react';
 import {View, Dimensions, Text, TouchableOpacity, Image} from 'react-native';
+import {useDispatch} from 'react-redux';
 import IconClose from 'react-native-vector-icons/AntDesign';
 import {useNavigation} from '@react-navigation/core';
+import {getCatsAction} from '../../core';
 import {RNCamera} from 'react-native-camera';
 import {Gyroscope} from '../../components/gyroscope/Gyroscope';
 
 export const HomeScreen = () => {
   const navigation = useNavigation();
+  const dispatch = useDispatch();
   let cameraRef = useRef(null);
 
   return (
@@ -21,7 +24,9 @@ export const HomeScreen = () => {
       }}>
       <IconClose name="stepforward" size={20} color="#AA0430" />
       {/*  <Gyroscope /> */}
-      <Text>Home Screen</Text>
+      <TouchableOpacity onPress={() => dispatch(getCatsAction())}>
+        <Text>Call me</Text>
+      </TouchableOpacity>
       <Text>Home Screen</Text>
       <Text>Home Screen</Text>
       <TouchableOpacity onPress={() => navigation.navigate('ReactPlayer')}>

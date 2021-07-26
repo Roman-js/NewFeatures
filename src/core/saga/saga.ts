@@ -1,15 +1,18 @@
 import {call, put, takeEvery} from '@redux-saga/core/effects';
+import {getCatsAction, getCatsActionSuccess} from '../actions';
+import {API} from '../api';
 
-function* sagaWorker() {
+function* getCats() {
   try {
     //yield put('actons')
-    //const payload = yield call(ourApi)
-    //yield put(our action)
-    // put it's dispacth
-    // put it's dispacth
-  } catch (e) {}
+    const payload = yield call(API.getAllCats);
+    console.log('payload: ', payload);
+    yield put(getCatsActionSuccess(payload));
+  } catch (e) {
+    console.log('error: ', e);
+  }
 }
 
 export function* sagaWatcher() {
-  //yeld takeEvery( here should be actions )
+  yield takeEvery(getCatsAction, getCats);
 }
